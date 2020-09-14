@@ -7,7 +7,16 @@ const RequestModel = require("../models").Request;
 
 // GET ALL Requests
 router.get("/", async (req, res) => {
-  let requests = await RequestModel.findAll();
+  let requests = await RequestModel.findAll({
+    attributes: [
+      "id",
+      "req_desc",
+      "req_start_date",
+      "req_end_date",
+      "user_id",
+      "tech_id",
+    ],
+  });
   res.json({ requests });
 });
 
@@ -15,10 +24,11 @@ router.get("/", async (req, res) => {
 router.get("/profile/:id", async (req, res) => {
   // router.get("/id", async (req, res) => {
   let request = await RequestModel.findByPk(req.params.id, {
-    include: [{ model: UserModel, attributes: ["id", "name"] }],
-    include: [{ model: RequestModel, attributes: ["id", "req_desc"] }],
+    // include: [{ model: UserModel, attributes: ["id", "name"] }],
+    include: { attributes: "id" },
     // include: RequestModel,
     // include: TechnicianModel,
+    // include: UserModel,
   });
   res.json({ request });
 });

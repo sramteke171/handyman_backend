@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Request.init(
     {
+      // id: DataTypes.INTEGER,
       req_desc: DataTypes.STRING,
       req_start_date: DataTypes.DATE,
       req_end_date: DataTypes.DATE,
