@@ -22,24 +22,21 @@ router.get("/", async (req, res) => {
 
 // GET request
 router.get("/profile/:id", async (req, res) => {
-  // router.get("/id", async (req, res) => {
   let request = await RequestModel.findByPk(req.params.id, {
     // include: [{ model: UserModel, attributes: ["id", "name"] }],
-    include: { attributes: "id" },
-    // include: RequestModel,
-    // include: TechnicianModel,
-    // include: UserModel,
+    // include: { attributes: "id" },
+
+    attributes: [
+      "id",
+      "req_desc",
+      "req_start_date",
+      "req_end_date",
+      "user_id",
+      "tech_id",
+    ],
   });
   res.json({ request });
 });
-
-// // GET ARTIST PROFILE
-// router.get("/profile/:id", async (req, res) => {
-//   let artist = await ArtistModel.findByPk(req.params.id, {
-//     include: [{ model: UserModel, attributes: ["id", "name"] }],
-//   });
-//   res.json({ artist });
-// });
 
 // CREATE A NEW Request
 router.post("/", async (req, res) => {

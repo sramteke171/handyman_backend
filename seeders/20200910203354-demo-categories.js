@@ -23,8 +23,20 @@ module.exports = {
           cat_desc: "All carpenting related work",
         },
         {
-          name: "Nanny",
-          cat_desc: "Support child-care, helping senior citizens",
+          name: "Electrician",
+          cat_desc: "Electricity related work",
+        },
+        {
+          name: "Roofer",
+          cat_desc: "House-roofs related work",
+        },
+        {
+          name: "Landscaper",
+          cat_desc: "Landscaping related work",
+        },
+        {
+          name: "Car Mechanic",
+          cat_desc: "Car repair and maintenance work",
         },
       ],
       {}
